@@ -1,3 +1,4 @@
+import { BoxLogin } from "./components/BoxLogin/style";
 
 
 
@@ -5,9 +6,12 @@
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    // <div className="App">
+   
+    <BoxLogin>
+      
+    </BoxLogin>
+    // </div>
   );
 }
 
