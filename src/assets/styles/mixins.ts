@@ -107,7 +107,7 @@ const select = (important = true) => css`
   background: ${important ? colors.secondaryColor : "transparent"};
   border: ${important ? "none" : "1px solid " + colors.baseLine};
   color: ${colors.textColor};
-  background-image: url(${down});
+
   background-repeat: no-repeat;
   padding-right: 50px;
   background-position: 85%;
