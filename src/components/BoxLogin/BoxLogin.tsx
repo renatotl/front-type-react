@@ -25,7 +25,12 @@ const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps) => {
   }
 
 
-    return
+    return(
+      <S.BoxLogin>
+        
+      </S.BoxLogin>
+        
+    )
 };
 
 export default BoxLogin;
