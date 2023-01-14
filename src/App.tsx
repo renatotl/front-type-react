@@ -1,17 +1,21 @@
-import { BoxLogin } from "./components/BoxLogin/style";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import theme from "./assets/styles/theme";
+import Router from "./router";
 
 
-
-
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    // <div className="App">
-   
-    <BoxLogin>
-      
-    </BoxLogin>
-    // </div>
+    <ThemeProvider theme={theme}>
+     <BrowserRouter>
+        <QueryClientProvider client={QueryClient}>
+          <Router />
+        </QueryClientProvider>
+     </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
