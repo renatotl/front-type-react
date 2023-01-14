@@ -1,5 +1,6 @@
 
 import { HTMLAttributes, useState } from 'react';
+import ButtonLarge from '../ButtonLarge/ButtonLarge';
 import * as S from "./style";
 
 type BoxLoginType =  HTMLAttributes<HTMLDivElement>
@@ -27,7 +28,31 @@ const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps) => {
 
     return(
       <S.BoxLogin>
-          <p>Olá mundo</p>
+        <S.BoxLoginLogo>
+        <S.BoxLoginLogoText>
+                    <span>Login</span>
+          </S.BoxLoginLogoText>
+        </S.BoxLoginLogo>
+        <S.BoxLoginForm>
+                <input
+                    type="text"
+                    placeholder="Nome"
+                    value={name}
+                    onChange={({target}) => setName(target.value)}
+                />
+
+                <input
+                    type="password"
+                    placeholder="Senha"
+                    value={password}
+                    onChange={({target}) => setPassword(target.value)}
+                />
+                <ButtonLarge
+                    value="Entrar"
+                    type="button"
+                    onClick={handleSubmit}/>
+            </S.BoxLoginForm>
+          
       </S.BoxLogin>
         
     )
