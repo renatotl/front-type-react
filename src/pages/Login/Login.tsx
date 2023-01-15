@@ -18,6 +18,12 @@ const Login = () => {
       navigate(RoutePath.HOMEPAGE);
   }
 
+  const handleCadastroSubmit = () => {
+        //acionando navigante direcionando para home
+        navigate(RoutePath.CADASTRO);
+      }
+
+
     return (
         
             <S.Login>

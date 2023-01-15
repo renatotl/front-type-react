@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const ButtonLarge = styled.button`
+export const ButtonLargeCadastro = styled.button`
 	${({ theme }) => css`
 		background: ${theme.colors.primaryColor};
 		border: none;

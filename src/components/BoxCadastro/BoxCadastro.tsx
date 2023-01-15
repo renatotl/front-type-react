@@ -13,7 +13,7 @@ export type BoxLoginProps = {
     errorMessage: string
   } & BoxLoginType;
 
-const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps) => {
+const BoxCadastro = ({onSubmitData, errorMessage}: BoxLoginProps) => {
 
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -26,12 +26,13 @@ const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps) => {
       onSubmitData(data);// já passando-á para nosso backend
   }
 
+ 
 
     return(
       <S.BoxLogin>
         <S.BoxLoginLogo>
         <S.BoxLoginLogoText>
-                    <span>Login</span>
+                    <span>Cadastro</span>
           </S.BoxLoginLogoText>
         </S.BoxLoginLogo>
         <S.BoxLoginForm>
@@ -53,7 +54,7 @@ const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps) => {
                     type="button"
                     onClick={handleSubmit}/>
 
-                    <ButtonLargeCadastro />
+                   
                        
                     
             </S.BoxLoginForm>
@@ -63,4 +64,4 @@ const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps) => {
     )
 };
 
-export default BoxLogin;
+export default BoxCadastro;
