@@ -2,6 +2,7 @@
 import { HTMLAttributes, useState } from 'react';
 import ButtonLarge from '../ButtonLarge/ButtonLarge';
 import ButtonLargeCadastro from '../ButtonLargeCadastro/ButtonLargeCadastro';
+import ButtonLogin from '../ButtonLogin/ButtonLogin';
 import * as S from "./style";
 
 type BoxLoginType =  HTMLAttributes<HTMLDivElement>
@@ -54,7 +55,7 @@ const BoxCadastro = ({onSubmitData, errorMessage}: BoxLoginProps) => {
                     type="button"
                     onClick={handleSubmit}/>
 
-                   
+                   <ButtonLogin/>
                        
                     
             </S.BoxLoginForm>

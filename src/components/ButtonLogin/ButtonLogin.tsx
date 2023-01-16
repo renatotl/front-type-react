@@ -4,21 +4,21 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const ButtonLargeCadastro = () => {
+const ButtonLogin = () => {
 
         // necessário usar este cara para navegar para home
         const navigate = useNavigate();
-    const handleCadastroSubmit = () => {
+    const handleLoginSubmit = () => {
         //acionando navigante direcionando para home
-        navigate(RoutePath.CADASTRO);
+        navigate(RoutePath.LOGIN);
       }
 
     return (
-    <S.ButtonLargeCadastro  onClick={handleCadastroSubmit}/>
+    <S.ButtonLogin  onClick={handleLoginSubmit}/>
     )
 }
 
-export default ButtonLargeCadastro;
+export default ButtonLogin;
 
 /*
 Por enquanto o nosso código está dando erro, então vamos definir as propriedades de ButtonLarge voltando no index.tsx, importando o React e o ButtonHTMLAttributes de forma desestruturada:
