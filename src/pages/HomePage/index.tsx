@@ -1,10 +1,14 @@
 
-
+ import * as S from "./style";
 
 
 const HomePage = () => {
 
-    return
+    return (
+          <S.body>
+
+          </S.body>
+    )
 };
 
-export default HomePage
+export default HomePage;

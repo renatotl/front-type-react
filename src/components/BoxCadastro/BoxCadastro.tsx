@@ -50,7 +50,7 @@ const BoxCadastro = ({onSubmitData, errorMessage}: BoxLoginProps) => {
                     onChange={({target}) => setPassword(target.value)}
                 />
                 <ButtonLarge
-                    value="Entrar"
+                    value="cadastar"
                     type="button"
                     onClick={handleSubmit}/>
 

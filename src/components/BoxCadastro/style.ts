@@ -39,7 +39,7 @@ justify-content: center;
 border-top: 1px solid ${theme.colors.textColor};
 border-bottom: 1px solid ${theme.colors.textColor};
 text-align: end;
-width: calc(50% - 10px);
+width: calc(65% - 10px);
 span:first-child {
     border-top: 1px solid ${theme.colors.textColor};
     display: inline-block;

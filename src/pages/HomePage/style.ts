@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const Login2 = styled.section`
+export const body = styled.section`
 	${({ theme }) => css`
 		background-color: ${theme.colors.baseBg2};
 		
@@ -8,15 +8,5 @@ export const Login2 = styled.section`
 		background-position: center;
 		width: 100vw;
 		height: 47.3vw;
-	`}
-`;
-
-export const LoginContent = styled.main`
-	${({ theme }) => css`
-		width: 100%;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center; ;
 	`}
 `;

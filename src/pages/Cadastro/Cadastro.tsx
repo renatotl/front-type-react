@@ -13,11 +13,11 @@ const Cadastar = () => {
    
     const handleLoginSubmit = () => {
         //acionando navigante direcionando para home
-        navigate(RoutePath.CADASTRO);
+        navigate(RoutePath.HOMEPAGE);
       }
     return (
 
-        <S.Login>
+        <S.Login2>
         <S.LoginContent>
            <BoxCadastro
              onSubmitData={handleLoginSubmit}
@@ -25,7 +25,7 @@ const Cadastar = () => {
 
             />
         </S.LoginContent>
-     </S.Login>
+     </S.Login2>
     )
 }
 
