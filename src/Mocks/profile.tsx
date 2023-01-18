@@ -5,6 +5,5 @@ export type Profile = {
   title: string;
   imageUrl: string;
   userId: string;
-  favoriteGames: string[];
   Game: Game[];
 };

@@ -1,3 +1,5 @@
+import { Profile } from "./profile";
+
 export type Game = {
   id: string;
   title: string;
@@ -7,6 +9,5 @@ export type Game = {
   imdbScore: number;
   trailerYouTubeUrl: string;
   gameplayYouTubeUrl: string;
-  userId: string;
-  profileId: string;
+  profiles: Profile[];
 };
