@@ -6,6 +6,10 @@ import * as S from "./style";
 
 type BoxLoginType =  HTMLAttributes<HTMLDivElement>
 
+//E vamos criar um tipo ButtonLargeProps que recebe um objeto com o value e também ButtonType: para o value/ não esqucer de passar como props
+type ButtonPropsName = {
+  value: string;
+} ;
 
 export type BoxLoginProps = {
     // essa propriedade só é assionada quando tiver informação 
@@ -13,7 +17,7 @@ export type BoxLoginProps = {
     errorMessage: string
   } & BoxLoginType;
 
-const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps) => {
+const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps, {value }: ButtonPropsName) => {
 
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -53,7 +57,7 @@ const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps) => {
                     type="button"
                     onClick={handleSubmit}/>
 
-                    <ButtonLargeCadastro />
+                    <ButtonLargeCadastro  />
                        
                     
             </S.BoxLoginForm>

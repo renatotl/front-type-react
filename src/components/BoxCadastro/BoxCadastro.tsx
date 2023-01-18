@@ -8,13 +8,19 @@ import * as S from "./style";
 type BoxLoginType =  HTMLAttributes<HTMLDivElement>
 
 
+
 export type BoxLoginProps = {
     // essa propriedade só é assionada quando tiver informação 
     onSubmitData: (data: {name: string, password: string}) => void
     errorMessage: string
   } & BoxLoginType;
 
+
+
 const BoxCadastro = ({onSubmitData, errorMessage}: BoxLoginProps) => {
+
+
+  const nomeButton: string = "Login";
 
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -55,7 +61,10 @@ const BoxCadastro = ({onSubmitData, errorMessage}: BoxLoginProps) => {
                     type="button"
                     onClick={handleSubmit}/>
 
-                   <ButtonLogin/>
+                    <S.pLogin>Login</S.pLogin>
+                   <ButtonLogin 
+            
+                  />
                        
                     
             </S.BoxLoginForm>

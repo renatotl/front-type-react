@@ -14,7 +14,12 @@ const ButtonLargeCadastro = () => {
       }
 
     return (
-    <S.ButtonLargeCadastro  onClick={handleCadastroSubmit}/>
+      
+    <S.ButtonLargeCadastro  
+    onClick={handleCadastroSubmit}
+    
+    />
+   
     )
 }
 
