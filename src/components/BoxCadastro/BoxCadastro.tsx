@@ -1,7 +1,6 @@
 
 import { HTMLAttributes, useState } from 'react';
 import ButtonLarge from '../ButtonLarge/ButtonLarge';
-import ButtonLargeCadastro from '../ButtonLargeCadastro/ButtonLargeCadastro';
 import ButtonLogin from '../ButtonLogin/ButtonLogin';
 import * as S from "./style";
 
@@ -19,8 +18,6 @@ export type BoxLoginProps = {
 
 const BoxCadastro = ({onSubmitData, errorMessage}: BoxLoginProps) => {
 
-
-  const nomeButton: string = "Login";
 
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -60,8 +57,6 @@ const BoxCadastro = ({onSubmitData, errorMessage}: BoxLoginProps) => {
                     value="cadastar"
                     type="button"
                     onClick={handleSubmit}/>
-
-                    <S.pLogin>Login</S.pLogin>
                    <ButtonLogin 
             
                   />

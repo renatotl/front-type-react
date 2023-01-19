@@ -68,13 +68,3 @@ export const BoxLoginForm = styled.form`
 `;
 
 
-export const pLogin = styled.p`
-  ${({ theme }) => css`
-  	display: flex;
-  	flex-direction: column;
-  	gap: 15px;
-	align-items:center;
-
- 
-  `}
-`;

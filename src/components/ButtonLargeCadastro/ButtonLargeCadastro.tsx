@@ -18,7 +18,7 @@ const ButtonLargeCadastro = () => {
     <S.ButtonLargeCadastro  
     onClick={handleCadastroSubmit}
     
-    />
+    > cadastrar </S.ButtonLargeCadastro>
    
     )
 }
