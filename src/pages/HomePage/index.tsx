@@ -8,12 +8,17 @@ import * as S from "./style";
 
 
 
+
+
+
+const HomePage = () => {
+
+    // ela recebe uma rota e nos direcionara para essa rota 
+    const handleNavigation = (path: RoutePath) => navigate(path);
+
 const navigate = useNavigate();
 
 
-  // ela recebe uma rota e nos direcionara para essa rota 
-  const handleNavigation = (path: RoutePath) => navigate(path);
-const HomePage = () => {
 
     return (
           <S.body>
