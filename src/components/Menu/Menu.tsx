@@ -1,5 +1,4 @@
 
-import logo from "assets/imgs/gamepad.png";
 import { ReactComponent as Logout } from "assets/icons/logout.svg"; //Importando ReactComponent COMO Logout. Trazendo uma imagem como sendo um component react
 //  * = all
 import * as S from "./style";
@@ -22,7 +21,7 @@ const Menu = ({active, navItems, onNavigate, onLogout}:MenuProps) =>{
     <S.Menu>
     <nav>
       <S.MenuLogo>
-        <img src={logo} alt="Logo" />
+        <img  alt="Logo" />
       </S.MenuLogo>
 
       {navItems.map((item, index) => (
