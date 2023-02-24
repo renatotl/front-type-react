@@ -30,6 +30,7 @@ export const Menu = styled.menu`
 		background: ${theme.colors.baseBg2};
 		border-radius: 0 16px 16px 0;
 		box-sizing: border-box;
+		position: relative;
 		nav {
 			display: flex;
 			flex-direction: column;

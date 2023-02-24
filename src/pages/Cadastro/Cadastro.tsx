@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import BoxCadastro from "../../components/BoxCadastro/BoxCadastro";
 
+
 const Cadastar = () => {
    
    const [errorMessage, setErrorMessage] = useState('');

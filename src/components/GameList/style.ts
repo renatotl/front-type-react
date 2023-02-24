@@ -13,12 +13,15 @@ export const ProductItem = styled.div`
 		width: 100%;
 		cursor: pointer;
 		min-height: 225px;
+	   
+		
 		div {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-around;
 			align-items: center;
 			gap: 10px;
+			
 		}
 	`}
 `;
