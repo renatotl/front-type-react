@@ -69,7 +69,7 @@ type MenuItemStyled = { active: boolean };
 export const MenuItem = styled.div<MenuItemStyled>`
 	${({ theme, active }) => css`
 		height: 80px;
-		width: calc(100% - 15px);
+		width: calc(80% - 15px);
 		border-radius: 16px 0 0 16px;
 		display: flex;
 		justify-content: center;

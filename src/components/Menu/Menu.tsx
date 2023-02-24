@@ -21,7 +21,7 @@ const Menu = ({active, navItems, onNavigate, onLogout}:MenuProps) =>{
     <S.Menu>
     <nav>
       <S.MenuLogo>
-        <img  alt="Logo" />
+        <img   alt="Logo" />
       </S.MenuLogo>
 
       {navItems.map((item, index) => (
