@@ -1,5 +1,4 @@
 export interface User {
-    nickname: string;
     name: string;
     password: string;
     passwordConfirm: string;
@@ -15,7 +14,6 @@ export interface User {
   // propriedades que a api dos da
   export interface UserResponse {
     id: string;
-    nickname: string;
     name: string;
     password: string;
     image: string;

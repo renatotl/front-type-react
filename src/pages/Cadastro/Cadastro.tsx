@@ -14,7 +14,7 @@ const Cadastar = () => {
    
     const handleLoginSubmit = () => {
         //acionando navigante direcionando para home
-        navigate(RoutePath.HOMEPAGE);
+        navigate(RoutePath.PROFILE);
       }
     return (
 

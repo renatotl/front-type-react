@@ -8,6 +8,7 @@ import { GameLis } from "../../mocks/gameList";
 import GameList from "components/GameList/GameList";
 import { ProductResponse } from "types/Product";
 import { GameResponse } from "types/game";
+import { Auth } from "helpers/Auth";
 
 const HomePage = () => {
   // ela recebe uma rota e nos direcionara para essa rota
@@ -18,13 +19,16 @@ const HomePage = () => {
 
   const navigate = useNavigate();
 
+
+  // onLogout={() => navigate(RoutePath.LOGIN)} // apenas muda a rota
+  // realmente desloga: onLogout={Auth.logout}// dessa forma realmente damos o logout
   return (
     <S.body>
        <Menu
         active={RoutePath.HOMEPAGE}
         navItems={navigationItems}
         onNavigate={handleNavigation}
-        onLogout={() => navigate(RoutePath.LOGIN)}
+        onLogout={Auth.logout}
       />
         <div> 
       {Boolean(GameLis.length) &&

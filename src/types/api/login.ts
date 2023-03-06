@@ -1,7 +1,7 @@
 import { User } from "./user";// trazendo user pra ca
   
 export interface Login {
-  name: string;
+  email: string;
   password: string;
 }
 

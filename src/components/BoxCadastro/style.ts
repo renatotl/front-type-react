@@ -4,7 +4,7 @@ export const BoxLogin = styled.section`
 	${({ theme }) => css`
 		background: ${theme.colors.baseBg2};
 		width: 330px;
-		height: 400px;
+		height: 500px;
 		padding: 20px 20px 20px 20px;
 		margin: 20px;
 		border-radius: 8px;
