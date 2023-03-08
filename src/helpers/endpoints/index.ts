@@ -1,6 +1,6 @@
 import { auth } from './auth';
 import { order } from './order';
-import { product } from './product';
+import { profile } from './profile';
 import { user } from './user';
 
 export const endpoint = {
@@ -8,7 +8,7 @@ export const endpoint = {
     ...auth,// esparalhos todos os endpoints
     ...user,
     ...order,
-    ...product,
+    ...profile,
 };
 
 //Vamos centralizar os endpoints da nossa API.

@@ -24,13 +24,13 @@ const Router = () => {
         <Routes>
  
           <Route path={RoutePath.CADASTRO} element={<Cadastar/>} />
-          <Route path={RoutePath.PROFILE} element={<Profile/>} />
+          
           <Route path={RoutePath.LOGIN} element={<Login/>} />
 
         <Route path="/" element={<AuthenticatedRoutes/>} >
           
           
-          
+        <Route path={RoutePath.PROFILE} element={<Profile/>} />
           <Route path={RoutePath.HOMEPAGE} element={<HomePage/>} />
 
           </Route>

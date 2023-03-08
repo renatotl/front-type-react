@@ -9,16 +9,17 @@ export const UserService = {
     Api(endpoint.listUsers(), {
       method: "GET",
     }).then((response) => response.json()),
-
-  create: (user: User) =>
-    Api(endpoint.createUser(), {
+//fiz igual ao módulo 4 do react por isso esse está diferente, mas deu certo
+  create: async (user: User) =>
+    fetch("https://live-game-retro-production.up.railway.app" + `/user/createUser`, {
       method: "POST",
       body: JSON.stringify(user),
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response) => response.json()),
+    }
+    ),
 
   getById: (id: string) =>
     Api(endpoint.userById(id), {

@@ -1,4 +1,4 @@
-import { User } from "./user";// trazendo user pra ca
+import {  User } from "./user";// trazendo user pra ca
   
 export interface Login {
   email: string;

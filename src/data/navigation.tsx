@@ -8,10 +8,22 @@ import { RoutePath } from "types/routes";
 export const navigationItems: NavItem[] = [
 	{
 		icon: <Home />,// esse Home é este cara { ReactComponent as Home } 
-		path: RoutePath.HOMEPAGE,// o seundo é o aminho que vai direionar 
+		path: RoutePath.PROFILE,// o seundo é o aminho que vai direionar 
 	},
 	{
 		icon: <Settings />,
-		path: RoutePath.SETTINGS,
+		path: RoutePath.HOMEPAGE,
+	},
+];
+
+
+export const navigationItems2: NavItem[] = [
+	{
+		icon: <Home />,// esse Home é este cara { ReactComponent as Home } 
+		path: RoutePath.HOMEPAGE,// o seundo é o aminho que vai direionar 
+	},
+	{
+		icon: <Home />,
+		path: RoutePath.PROFILE,
 	},
 ];

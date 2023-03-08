@@ -1,8 +1,9 @@
 export interface User {
     name: string;
+    email: string;
+    cpf: string;
     password: string;
-    passwordConfirm: string;
-    image: string;
+    role?: boolean;
   }
 
     
@@ -15,8 +16,9 @@ export interface User {
   export interface UserResponse {
     id: string;
     name: string;
-    password: string;
-    image: string;
-    updatedAt?: string;
+    email: string;
+    cpf: string;
+    role: boolean;
     createdAt?: string;
+    updatedAt?: string;
   }

@@ -2,7 +2,7 @@
 
 export enum QueryKey {
     LOGIN = "login",
-    PRODUCTS = "products",
+    PROFILES = "profiles",
     USERS = "users",
   }
 

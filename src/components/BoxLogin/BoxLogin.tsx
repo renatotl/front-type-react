@@ -19,7 +19,7 @@ export type BoxLoginProps = {
 
 const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps, {value }: ButtonPropsName) => {
 
-    const [email, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
   // função que envia as informações digitadas/ ela é do tipo void porque não precisa retornar nada ela só vai enviar informaçao
@@ -43,7 +43,7 @@ const BoxLogin = ({onSubmitData, errorMessage}: BoxLoginProps, {value }: ButtonP
                     type="text"
                     placeholder="E-mail"
                     value={email}
-                    onChange={({target}) => setName(target.value)}
+                    onChange={({target}) => setEmail(target.value)}
                 />
 
                 <input

@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query"
 import { LocalStorageHelper } from "helpers/LocalStorageHelper";
 import { AuthService } from "services/AuthService";
 import { ErrorResponse } from "types/api/error";
-import { Login as LoginData, LoginResponse } from "types/api/login"
+import { Login as LoginData, LoginResponse } from "types/api/login"// esse cara é a tipagem da api
 import { User } from "types/api/user";
 import { LocalStorageKeys } from "types/LocalStorageKeys";
 
@@ -23,6 +23,7 @@ const Login = () => {
        const mutation = useMutation(AuthService.login, {
 
         // poder ser um dos dois
+        //onSucces é se caso der certo ele pode trazer uma resposta de login mesmo ou erro
         onSuccess: (data: LoginResponse & ErrorResponse) => {
             // o statusCode vem da req
           if (data.statusCode) {
@@ -32,9 +33,9 @@ const Login = () => {
           if (data.token && data.user) {
             // gravando o token e o user no localStorage
             LocalStorageHelper.set<string>(LocalStorageKeys.TOKEN, data.token);
-            LocalStorageHelper.set<User>(LocalStorageKeys.USER, data.user);
+             LocalStorageHelper.set<User>(LocalStorageKeys.USER, data.user);
             // uma vez autentificado redirecionamos para a rota home
-            navigate(RoutePath.HOMEPAGE);
+            navigate(RoutePath.PROFILE);
           }
           setErrorMessage("Tente novamente!");
         },

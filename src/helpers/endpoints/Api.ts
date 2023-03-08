@@ -8,6 +8,7 @@ type args = [input: RequestInfo, init?: RequestInit | undefined];
 
 // o interceptador da req
 function requestInterceptor(config: RequestInit | undefined) {
+   
     if(config){
 
         // procura a propriedade token dentro do localstorage
@@ -15,7 +16,9 @@ function requestInterceptor(config: RequestInit | undefined) {
             Authorization: `Bearer ${LocalStorageHelper.get(LocalStorageKeys.TOKEN)}`,
         };
         //espalhando todsas info do config
+        console.log(token)
         config.headers = {...config.headers, ...token};
+        console.log(config.headers)
     }
 }
 // intercepta a resposta
@@ -24,15 +27,20 @@ function responseInterceptor(res: Response) {
     if (res.status === 401) Auth.logout();
 }
 // a resposta vem do backend
-export const Api = async (...args: args): Promise<Response> => {
+export const Api = async  (...args: args): Promise<Response> => {
     // recebe os args
     let [url, config] = args;
     //passando pra ela os dados
     requestInterceptor(config);
     // aguardando  ve se é 401
+ 
     const response = await fetch(url, config);
     // interceptar a res
     responseInterceptor(response);
     // se não for 401 ele retorna
     return response;
 }
+
+
+    
+
