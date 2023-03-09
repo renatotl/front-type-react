@@ -1,6 +1,9 @@
 
 import { useMutation, useQuery } from "@tanstack/react-query";
+import CheckoutSection from "components/CheckoutSection";
 import Menu from "components/Menu/Menu";
+import Overlay from "components/Overlay";
+
 import UserList from "components/UserList/UserList";
 import { navigationItems2 } from "data/navigation";
 import { Auth } from "helpers/Auth";
@@ -25,7 +28,7 @@ const Profile = () => {
     const [user, setUser] = useState<ProfileResponse[]>([]);
     
       //Vamos implementar a função handleSelection para que quando o usuário clique em uma pizza, ela seja adicionada automaticamente na lista do pedido.
-  const handleSelection = (user: ProfileResponse) => {};
+  const handleSelection = (data: ProfileResponse) => {};
 
 
    // Após a atualização da biblioteca react query (sendo utilizada como @tanstack/react-query), o método useQuery agora só aceita array como primeiro parâmetro ao invés de string como mostrado no vídeo
@@ -47,28 +50,41 @@ const Profile = () => {
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  const mutation = useMutation(ProfileService.getLista);
+ 
 
   const handleNavigation = (path: RoutePath) => navigate(path);
 
   const navigate = useNavigate();
 
-    const handleCadastroSubmit = () => {
-      mutation.mutate();
-      setErrorMessage("");
-      console.log()
-      
-    
-    }
+  const [proceedToOverlay, setProceedToOverlay] = useState<boolean>(false);
+
 
     return (
+      <> 
+      
+
         <S.body>
+        
+
+          
            <Menu
         active={RoutePath.HOMEPAGE}
         navItems={navigationItems2}
         onNavigate={handleNavigation}
         onLogout={Auth.logout}
+        onClick2={() => setProceedToOverlay(true)}
       />
+     
+
+{proceedToOverlay && (
+          <Overlay>
+            <CheckoutSection
+              
+               onCloseSection={() => setProceedToOverlay(false)}
+            />
+          </Overlay>
+        )}
+
                 <div> 
       {Boolean(user.length) &&
         user.map((user, index) => (
@@ -76,6 +92,7 @@ const Profile = () => {
         ))}
         </div>
         </S.body>
+        </>
     )
 
     

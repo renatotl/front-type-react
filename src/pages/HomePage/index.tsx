@@ -9,6 +9,7 @@ import GameList from "components/GameList/GameList";
 import { ProductResponse } from "types/Product";
 import { GameResponse } from "types/game";
 import { Auth } from "helpers/Auth";
+import { useState } from "react";
 
 const HomePage = () => {
   // ela recebe uma rota e nos direcionara para essa rota
@@ -19,6 +20,7 @@ const HomePage = () => {
 
   const navigate = useNavigate();
 
+  const [proceedToOverlay, setProceedToOverlay] = useState<boolean>(false);
 
   // onLogout={() => navigate(RoutePath.LOGIN)} // apenas muda a rota
   // realmente desloga: onLogout={Auth.logout}// dessa forma realmente damos o logout
@@ -29,6 +31,7 @@ const HomePage = () => {
         navItems={navigationItems}
         onNavigate={handleNavigation}
         onLogout={Auth.logout}
+        onClick2={() => setProceedToOverlay(true)}
       />
         <div> 
       {Boolean(GameLis.length) &&

@@ -1,10 +1,10 @@
-import { User } from "./user";
+import { User, UserResponse } from "./user";
 
 export interface Profile {
-    name: string;
-    description: string;
-    image: string;
-    price: number;
+    title: string;
+    imageURL: string;
+    userId?: string;
+    
   }
   
   export interface ProfileUpdate {

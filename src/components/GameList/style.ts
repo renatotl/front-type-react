@@ -29,7 +29,7 @@ export const ProductItem = styled.div`
 export const ProductItemImage = styled.img`
 	${() => css`
 		width: 150px;
-		margin-top: -50px;
+		margin-top: -600
 	`}
 `;
 

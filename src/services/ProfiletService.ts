@@ -17,13 +17,13 @@ export const ProfileService = {
                },
       // tratar a res e convertemos em json
     }); const data = resposnse.json();
-    console.log(` PRESTA ATENCAO${data}`)
+    
     return await data; },
 
     // cafdastrar produtos
-  create: (product: string) =>
+  create: (product: Profile) =>
   // passando metodo para ser executado
-    Api(endpoint.createProfile(), {
+    fetch("https://live-game-retro-production.up.railway.app" + '/profile/createProfile', {
         // segundo parametro 
       method: "POST",
       // converter o produto em json para ser enviado para aapi
@@ -35,7 +35,8 @@ export const ProfileService = {
         "Content-Type": "application/json",
       },
       // tratar para json
-    }).then((response) => response.json()),
+    })
+    ,
 
     // busca de um produtor
   getById: (id: string) =>

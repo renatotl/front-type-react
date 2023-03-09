@@ -89,6 +89,15 @@ export const MenuItemButton = styled.button<MenuItemStyled>`
 	`}
 `;
 
+export const MenuItemButton2 = styled.button<MenuItemStyled>`
+	${({ theme, active }) => css`
+		${theme.mixins.buttonIcon()};
+		z-index: 1;
+		${active && theme.mixins.buttonIcon(true)};
+	`}
+`;
+
+
 export const MenuItemLogout = styled.button`
 	${({ theme }) => css`
 		${theme.mixins.buttonIcon()};

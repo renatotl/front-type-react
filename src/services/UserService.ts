@@ -10,8 +10,8 @@ export const UserService = {
       method: "GET",
     }).then((response) => response.json()),
 //fiz igual ao módulo 4 do react por isso esse está diferente, mas deu certo
-  create: async (user: User) =>
-    fetch("https://live-game-retro-production.up.railway.app" + `/user/createUser`, {
+  create: async (user: User) => { 
+  const response = await  fetch("https://live-game-retro-production.up.railway.app" + `/user/createUser`, {
       method: "POST",
       body: JSON.stringify(user),
       mode: "cors",
@@ -19,7 +19,9 @@ export const UserService = {
         "Content-Type": "application/json",
       },
     }
-    ),
+    ); const data = response.json();
+    
+    return await data; },
 
   getById: (id: string) =>
     Api(endpoint.userById(id), {
