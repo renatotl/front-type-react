@@ -1,4 +1,4 @@
-import { GameResponse } from "../types/game";
+import { GameResponse } from "../types/api/game";
 
 
 // ´por ele ser um array precisou dos colchetes

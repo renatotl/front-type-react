@@ -4,6 +4,7 @@ export enum QueryKey {
     LOGIN = "login",
     PROFILES = "profiles",
     USERS = "users",
+    GAMES = "games",
   }
 
 

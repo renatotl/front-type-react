@@ -2,22 +2,25 @@
 
 import * as S from "./style";
 import { ProductResponse } from "types/Product";
-import { GameResponse } from "types/game";
+import { GameResponse } from "types/api/game";
 
 type ProductItemProps = {
-    product: GameResponse
+    gameData: GameResponse
     // quando o usuário selecionar um produto ele será add no carrinho
     onSelect: (data: GameResponse) => void
 }
-const GameList = ({product, onSelect}: ProductItemProps) => {
+const GameList = ({gameData, onSelect}: ProductItemProps) => {
     return (
 
-        <S.ProductItem role='listitem' onClick={()=> onSelect(product)}>
-            <S.ProductItemImage src={product.coverImageUrl} alt={product.title}/>
+        <S.ProductItem role='listitem' onClick={()=> onSelect(gameData)}>
+            <S.ProductItemImage src={gameData.coverImageUrl} alt={gameData.title}/>
             <div>
-                <S.ProductItemName>{product.title}</S.ProductItemName>
-                <S.ProductItemPrice>{product.year}</S.ProductItemPrice>
-                <S.ProductItemDescription>{product.description}</S.ProductItemDescription>
+                <S.ProductItemName>{gameData.title}</S.ProductItemName>
+                <S.ProductItemPrice>{gameData.year}</S.ProductItemPrice>
+                <S.ProductItemDescription>{gameData.description}</S.ProductItemDescription>
+                <S.ProductItemDescription>{gameData.trailerYouTubeUrl}</S.ProductItemDescription>
+                <S.ProductItemDescription>{gameData.gameplayYouTubeUrl}</S.ProductItemDescription>
+                
             </div>
         </S.ProductItem>
     );

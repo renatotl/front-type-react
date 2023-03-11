@@ -12,3 +12,15 @@ export interface GameResponse {
     gameplayYouTubeUrl: string,
 
 }
+
+export interface Game {
+    title: string;
+    imageURL: string;
+    userId?: string;
+    
+  }
+  
+  export interface GameUpdate {
+    game: string;
+    id: string;
+  }

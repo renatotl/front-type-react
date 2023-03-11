@@ -7,16 +7,39 @@ import * as S from "./style";
 import { GameLis } from "../../mocks/gameList";
 import GameList from "components/GameList/GameList";
 import { ProductResponse } from "types/Product";
-import { GameResponse } from "types/game";
+import { GameResponse } from "types/api/game";
 import { Auth } from "helpers/Auth";
-import { useState } from "react";
+import { useState , useEffect} from "react";
+import { QueryKey } from "types/QueryKey";
+import { useQuery } from "@tanstack/react-query";
+import { GameService } from "services/GameService";
 
 const HomePage = () => {
+
+
+
+      // resposta que vem da api
+      const [game, setGame] = useState<GameResponse[]>([]);
+
+      // Após a atualização da biblioteca react query (sendo utilizada como @tanstack/react-query), o método useQuery agora só aceita array como primeiro parâmetro ao invés de string como mostrado no vídeo
+   const { data: gameData } = useQuery(
+    // pegando a lista
+    [QueryKey.GAMES],
+    GameService.getLista
+  );
+
+  useEffect(() => {
+    // ou ostra a lista de produtos do bacjend ou a lista vazia 
+    setGame(gameData || []);
+   
+
+  }, [gameData]);
+
   // ela recebe uma rota e nos direcionara para essa rota
   const handleNavigation = (path: RoutePath) => navigate(path);
 
   //Vamos implementar a função handleSelection para que quando o usuário clique em uma pizza, ela seja adicionada automaticamente na lista do pedido.
-  const handleSelection = (product: GameResponse) => {};
+  const handleSelection = (data: GameResponse) => {};
 
   const navigate = useNavigate();
 
@@ -34,9 +57,9 @@ const HomePage = () => {
         onClick2={() => setProceedToOverlay(true)}
       />
         <div> 
-      {Boolean(GameLis.length) &&
-        GameLis.map((product, index) => (
-          <GameList product={product} key={index} onSelect={handleSelection} />
+      {Boolean(game.length) &&
+      game.map((gameData, index) => (
+          <GameList gameData={gameData} key={index} onSelect={handleSelection} />
         ))}
         </div>
     </S.body>
