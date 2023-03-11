@@ -4,6 +4,7 @@ export interface User {
     cpf: string;
     password: string;
     role?: boolean;
+    id: string;
   }
 
     
@@ -14,7 +15,7 @@ export interface User {
   
   // propriedades que a api dos da
   export interface UserResponse {
-    id: string;
+    id: User;
     name: string;
     email: string;
     cpf: string;

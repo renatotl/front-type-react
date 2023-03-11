@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query"
 import CadastroProfile from "components/CadastroProfile/CadastroProfile";
 import { HTMLAttributes, useState } from "react";
 import { ProfileService } from "services/ProfiletService";
+import { LoginResponse } from "types/api/login";
 import { Profile, Profile as ProfileData, ProfileResponse } from "types/api/profile"// esse cara é a tipagem da api
 
 
@@ -20,7 +21,7 @@ type CheckoutSectionProps = {
 
 //Este componente será responsável por coordenar a confirmação de pagamento e fechamento de pedidos
 
-const CheckoutSection = ({
+const CheckoutSection = ({ 
   
  
   onCloseSection,

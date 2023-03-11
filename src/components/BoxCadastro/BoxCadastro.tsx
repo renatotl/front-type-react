@@ -10,7 +10,7 @@ type BoxLoginType =  HTMLAttributes<HTMLDivElement>
 
 export type BoxLoginProps = {
     // essa propriedade só é assionada quando tiver informação 
-    onSubmitData: (data: {name: string,email: string, password: string, cpf: string, role: boolean}) => void
+    onSubmitData: (data: {name: string,email: string, password: string, cpf: string, role: boolean, id: string}) => void
     errorMessage: string
   } & BoxLoginType;
 
@@ -24,11 +24,13 @@ const BoxCadastro = ({onSubmitData, errorMessage}: BoxLoginProps) => {
     const [email, setEmail] = useState('');
     const [cpf, setCpf] = useState('');
     const [role, setRole] = useState(true);
+    const [id, setId] = useState('');
+
 
   // função que envia as informações digitadas/ ela é do tipo void porque não precisa retornar nada ela só vai enviar informaçao
   const handleSubmit = (): void => {
     // o data está recebendo de forma desconstruída {name, password}
-      const data = {name, email, password, cpf, role};
+      const data = {name, email, password, cpf, role, id};
       // mandando essas informações passando como propriedade
       onSubmitData(data);// já passando-á para nosso backend
   }

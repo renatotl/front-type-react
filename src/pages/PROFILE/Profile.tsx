@@ -1,6 +1,6 @@
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import CheckoutSection from "components/CheckoutSection";
+import CheckoutSection from "components/CheckoutSection/index";
 import Menu from "components/Menu/Menu";
 import Overlay from "components/Overlay";
 
@@ -79,7 +79,7 @@ const Profile = () => {
 {proceedToOverlay && (
           <Overlay>
             <CheckoutSection
-              
+             
                onCloseSection={() => setProceedToOverlay(false)}
             />
           </Overlay>
@@ -87,8 +87,8 @@ const Profile = () => {
 
                 <div> 
       {Boolean(user.length) &&
-        user.map((user, index) => (
-          <UserList user={user} key={index} onSelect={handleSelection} />
+        user.map((userData, index) => (
+          <UserList userData={userData} key={index} onSelect={handleSelection} />
         ))}
         </div>
         </S.body>

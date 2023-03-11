@@ -13,7 +13,7 @@ type ButtonPropsName = {
 
 export type BoxLoginProps = {
     // essa propriedade só é assionada quando tiver informação 
-    onSubmitData: (data: {email: string, password: string}) => void
+    onSubmitData: (data: {email: string, password: string} ) => void
     errorMessage: string
   } & BoxLoginType;
 

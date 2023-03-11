@@ -9,7 +9,7 @@ import { LocalStorageHelper } from "helpers/LocalStorageHelper";
 import { AuthService } from "services/AuthService";
 import { ErrorResponse } from "types/api/error";
 import { Login as LoginData, LoginResponse } from "types/api/login"// esse cara é a tipagem da api
-import { User } from "types/api/user";
+import { User, UserResponse } from "types/api/user";
 import { LocalStorageKeys } from "types/LocalStorageKeys";
 
 const Login = () => {
@@ -35,9 +35,21 @@ const Login = () => {
             LocalStorageHelper.set<string>(LocalStorageKeys.TOKEN, data.token);
              LocalStorageHelper.set<User>(LocalStorageKeys.USER, data.user);
              LocalStorageHelper.set<User>(LocalStorageKeys.ID, data.user);
+          
+
 console.log(data.user)
+  let valorId = LocalStorageHelper.set<User>(LocalStorageKeys.ID, data.user);
+console.log(LocalStorageKeys.ID, data.user.email
+)
+ console.log(LocalStorageKeys.ID, data.user.id)
+ 
+let valorDoIdUser = (LocalStorageKeys.ID, data.user.id)
+
+
+
             // uma vez autentificado redirecionamos para a rota home
-            navigate(RoutePath.PROFILE);
+            navigate(RoutePath.PROFILE, );
+            return valorDoIdUser
           }
           setErrorMessage("Tente novamente!");
         },
@@ -45,7 +57,7 @@ console.log(data.user)
             setErrorMessage("Ocorreu um erro durante a requisição");
           },
         });
-
+        
 
 // faz a navegação para tela home
 const handleSubmit = (data: LoginData) => {
