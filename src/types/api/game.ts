@@ -2,7 +2,7 @@
 
 export interface GameResponse {
 
-
+    id?: string;
     title: string,
     coverImageUrl: string,
     description: string,
@@ -10,13 +10,18 @@ export interface GameResponse {
     imdbScore: string,
     trailerYouTubeUrl: string,
     gameplayYouTubeUrl: string,
-
+    createdAt?: string;
+    updatedAt?: string;
 }
 
 export interface Game {
-    title: string;
-    imageURL: string;
-    userId?: string;
+  title: string,
+  coverImageUrl: string,
+  description: string,
+  year: string,
+  imdbScore: string,
+  trailerYouTubeUrl: string,
+  gameplayYouTubeUrl: string,
     
   }
   

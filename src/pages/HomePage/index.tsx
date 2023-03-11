@@ -13,6 +13,8 @@ import { useState , useEffect} from "react";
 import { QueryKey } from "types/QueryKey";
 import { useQuery } from "@tanstack/react-query";
 import { GameService } from "services/GameService";
+import { Overlay } from "components/Overlay/style";
+import CheckoutSectionGame from "components/CheckoutSectionGame";
 
 const HomePage = () => {
 
@@ -56,6 +58,16 @@ const HomePage = () => {
         onLogout={Auth.logout}
         onClick2={() => setProceedToOverlay(true)}
       />
+
+{proceedToOverlay && (
+          <Overlay>
+            <CheckoutSectionGame
+             
+             onCloseSection={() => setProceedToOverlay(false)}
+          />
+          </Overlay>
+        )}
+
         <div> 
       {Boolean(game.length) &&
       game.map((gameData, index) => (
