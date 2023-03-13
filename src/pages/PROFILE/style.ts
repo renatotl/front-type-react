@@ -15,3 +15,21 @@ export const body = styled.div`
 	`}
 `;
 
+// vamos definir a const HomeHeaderDetailsSearch que será o componente estilizado para a barra de pesquisa:
+export const HomeHeaderDetailsSearch = styled.div`
+	${({ theme }) => css`
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		${theme.mixins.input()};
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-right: 0;
+		input {
+			background: transparent;
+			border: none;
+			height: 100%;
+			color: ${theme.colors.textColor};
+		}
+	`}
+`;

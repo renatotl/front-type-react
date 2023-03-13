@@ -4,6 +4,7 @@ import CheckoutSection from "components/CheckoutSection/index";
 import CheckoutSectionProfileDelete from "components/CheckoutSectionProfileDelete";
 import Menu from "components/Menu/Menu";
 import Overlay from "components/Overlay";
+import { ReactComponent as Search } from "assets/icons/search.svg";
 
 import UserList from "components/UserList/UserList";
 import { navigationItems2 } from "data/navigation";
@@ -21,6 +22,7 @@ import { LocalStorageKeys } from "types/LocalStorageKeys";
 import { QueryKey } from "types/QueryKey";
 import { RoutePath } from "types/routes";
 import * as S from "./style";
+import { matchByText } from "helpers/Utils";
 
 
 
@@ -32,6 +34,8 @@ const PROFILE = ( ) => {
 
     const [perfil, setPerfil] = useState<ProfileResponse>();
 
+    const [proceedToOverlay, setProceedToOverlay] = useState<boolean>(false);
+  const [proceedToOverlayProfile, setProceedToOverlayProfile] = useState<boolean>(false);
     
       //Vamos implementar a função handleSelection para que quando o usuário clique em uma pizza, ela seja adicionada automaticamente na lista do pedido.
   const handleSelection = (data: ProfileResponse) => {
@@ -58,9 +62,12 @@ console.log(perfil)
   );
 
 
+  
+
   useEffect(() => {
     // ou ostra a lista de produtos do bacjend ou a lista vazia 
     setUser(profileData || []);
+    
    
 
   }, [profileData]);
@@ -75,8 +82,11 @@ console.log(perfil)
 
   const navigate = useNavigate();
 
-  const [proceedToOverlay, setProceedToOverlay] = useState<boolean>(false);
-  const [proceedToOverlayProfile, setProceedToOverlayProfile] = useState<boolean>(false);
+  //função do filtro
+const handleFilter = (testo: string  ) => {
+  const list = user.filter(({title}) => matchByText(title, testo));
+  setUser(list);
+}
 
 
 
@@ -105,10 +115,16 @@ console.log(perfil)
           </Overlay>
         )}
 
+<S.HomeHeaderDetailsSearch>
+            <Search />
+            <input  type="text" placeholder="Procure pelo nome de perfil"
+            onChange={({target}) => handleFilter(target.value)} />
+          </S.HomeHeaderDetailsSearch>
+
 {proceedToOverlay && (
           <Overlay>
             <CheckoutSection
-             
+                
                onCloseSection={() => setProceedToOverlay(false)}
             />
           </Overlay>

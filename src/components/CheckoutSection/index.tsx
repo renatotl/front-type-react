@@ -44,7 +44,7 @@ const CheckoutSection = ({
     mutation.mutate(data);
     setErrorMessage("");
     console.log(data)
-   
+    
   
   }
 
