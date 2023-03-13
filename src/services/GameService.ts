@@ -22,9 +22,9 @@ export const GameService = {
     return await data; },
 
     // cafdastrar produtos
-  create: (game: Game) =>
+  create: async (game: Game) => { 
   // passando metodo para ser executado
-    fetch("https://live-game-retro-production.up.railway.app" + '/games/creatGames', {
+  const response = await    fetch("https://live-game-retro-production.up.railway.app" + '/games/createGame', {
         // segundo parametro 
       method: "POST",
       // converter o produto em json para ser enviado para aapi
@@ -36,7 +36,9 @@ export const GameService = {
         "Content-Type": "application/json",
       },
       // tratar para json
-    })
+    }); const data = response.json();
+    
+    return await data; }
     ,
 
     // busca de um produtor
@@ -66,10 +68,13 @@ export const GameService = {
 
 
     // muito parecido com get id
-  deleteById: (id: string) =>
-    Api(endpoint.profileById(id), {
+  deleteById: async (id: any) => { 
+    const response = await   fetch("https://live-game-retro-production.up.railway.app" + `/games/deleteGameById/${id}`, {
       method: "DELETE",
-    }).then((response) => response.json()),
+    }); const data = response.json();
+    
+    return await data; }
+    ,
 };
 
 

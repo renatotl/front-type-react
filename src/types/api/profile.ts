@@ -16,8 +16,8 @@ export interface Profile {
   // resposta da api
   export interface ProfileResponse {
     id?: string;
-    title: string;
-    imageURL: string;
+    title?: string;
+    imageURL?: string;
     userId?: User;
     createdAt?: string;
     updatedAt?: string;

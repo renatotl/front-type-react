@@ -6,6 +6,8 @@ import { ProfileResponse } from "types/api/profile";
 
 type ProductItemProps = {
     userData: ProfileResponse
+    
+
     // quando o usuário selecionar um produto ele será add no carrinho
     onSelect: (data: ProfileResponse) => void
 }
@@ -13,7 +15,7 @@ const UserList = ({userData, onSelect}: ProductItemProps) => {
     
     return (
 
-        <S.ProductItem role='listitem' onClick={()=> onSelect(userData)}>
+        <S.ProductItem role='listitem' onClick={()=> onSelect(userData) }>
             <S.ProductItemImage src={userData.imageURL} alt="Imagem de usuário"/>
             <div>
                 <S.ProductItemName>{userData.title}</S.ProductItemName>

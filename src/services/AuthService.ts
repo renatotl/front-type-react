@@ -7,12 +7,14 @@ import { Login, LoginResponse } from "types/api/login";
 import { User } from "types/api/user";
 
 
+
+
 // camada de serviço
 export const AuthService = {
     // metodod / resposta no login oi erro na resposta
   login: (loginData: Login): Promise<LoginResponse & ErrorResponse> =>
   // o mtodo auth está dentro de endpoint
-    Api(endpoint.auth(), {
+    Api("https://live-game-retro-production.up.railway.app" + '/auth', {
         // metodo post
       method: "POST",
       // o que vou enviar no corpo  e convertendo o bodu em json para a api

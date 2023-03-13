@@ -21,9 +21,9 @@ export const ProfileService = {
     return await data; },
 
     // cafdastrar produtos
-  create: (product: Profile) =>
+  create: async (product: Profile) => { 
   // passando metodo para ser executado
-    fetch("https://live-game-retro-production.up.railway.app" + '/profile/createProfile', {
+  const response = await    fetch("https://live-game-retro-production.up.railway.app" + '/profile/createProfile', {
         // segundo parametro 
       method: "POST",
       // converter o produto em json para ser enviado para aapi
@@ -35,7 +35,9 @@ export const ProfileService = {
         "Content-Type": "application/json",
       },
       // tratar para json
-    })
+    }); const data = response.json();
+    
+    return await data; }
     ,
 
     // busca de um produtor
@@ -65,11 +67,13 @@ export const ProfileService = {
 
 
     // muito parecido com get id
-  deleteById: (id: string) =>
-    Api(endpoint.profileById(id), {
+  deleteById: async (id: any) => { 
+  const response = await   fetch("https://live-game-retro-production.up.railway.app" + `/profile/deleteProfileById/${id}`, {
       method: "DELETE",
-    }).then((response) => response.json()),
-};
+    }); const data = response.json();
+    
+    return await data; },
+} 
 
 
 //  export const ProfileService = {

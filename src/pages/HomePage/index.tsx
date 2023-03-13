@@ -15,6 +15,9 @@ import { useQuery } from "@tanstack/react-query";
 import { GameService } from "services/GameService";
 import { Overlay } from "components/Overlay/style";
 import CheckoutSectionGame from "components/CheckoutSectionGame";
+import { LocalStorageHelper } from "helpers/LocalStorageHelper";
+import { LocalStorageKeys } from "types/LocalStorageKeys";
+import CheckoutSectionGameDelete from "components/CheckoutSectionGameDelete";
 
 const HomePage = () => {
 
@@ -22,6 +25,11 @@ const HomePage = () => {
 
       // resposta que vem da api
       const [game, setGame] = useState<GameResponse[]>([]);
+
+    const [game2, setGame2] = useState<GameResponse>();
+
+
+
 
       // Após a atualização da biblioteca react query (sendo utilizada como @tanstack/react-query), o método useQuery agora só aceita array como primeiro parâmetro ao invés de string como mostrado no vídeo
    const { data: gameData } = useQuery(
@@ -41,11 +49,27 @@ const HomePage = () => {
   const handleNavigation = (path: RoutePath) => navigate(path);
 
   //Vamos implementar a função handleSelection para que quando o usuário clique em uma pizza, ela seja adicionada automaticamente na lista do pedido.
-  const handleSelection = (data: GameResponse) => {};
+  const handleSelection = (data: GameResponse) => {
+
+    setGame2(data)
+    console.log(data) 
+
+    {data && setProceedToOverlayGame(true)}
+    LocalStorageHelper.set<GameResponse>(LocalStorageKeys.GAME, data);
+    console.log(LocalStorageKeys.PROFILE, data)
+
+    let valorDoIdUser = (LocalStorageKeys.PROFILE, data)
+
+    return data
+  };
+
+  console.log(game2)
+
 
   const navigate = useNavigate();
 
   const [proceedToOverlay, setProceedToOverlay] = useState<boolean>(false);
+  const [proceedToOverlayGame, setProceedToOverlayGame] = useState<boolean>(false);
 
   // onLogout={() => navigate(RoutePath.LOGIN)} // apenas muda a rota
   // realmente desloga: onLogout={Auth.logout}// dessa forma realmente damos o logout
@@ -58,6 +82,17 @@ const HomePage = () => {
         onLogout={Auth.logout}
         onClick2={() => setProceedToOverlay(true)}
       />
+
+
+{proceedToOverlayGame && (
+          <Overlay>
+          <CheckoutSectionGameDelete
+             enviando={game2}
+             onCloseSection={() => setProceedToOverlayGame(false)}
+          />
+          </Overlay>
+        )}
+
 
 {proceedToOverlay && (
           <Overlay>

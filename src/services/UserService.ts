@@ -9,6 +9,8 @@ export const UserService = {
     Api(endpoint.listUsers(), {
       method: "GET",
     }).then((response) => response.json()),
+
+    
 //fiz igual ao módulo 4 do react por isso esse está diferente, mas deu certo
   create: async (user: User) => { 
   const response = await  fetch("https://live-game-retro-production.up.railway.app" + `/user/createUser`, {
