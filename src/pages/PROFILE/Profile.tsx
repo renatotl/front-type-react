@@ -1,7 +1,7 @@
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import CheckoutSection from "components/CheckoutSection/index";
-import CheckoutSectionProfileDelete from "components/CheckoutSectionProfileDelete";
+import CheckoutSection from "components/CheckoutSection/CheckoutSection";
+import CheckoutSectionProfileDelete from "components/CheckoutSectionProfileDelete/CheckoutSectionProfileDelete";
 import Menu from "components/Menu/Menu";
 import Overlay from "components/Overlay";
 import { ReactComponent as Search } from "assets/icons/search.svg";
@@ -23,6 +23,7 @@ import { QueryKey } from "types/QueryKey";
 import { RoutePath } from "types/routes";
 import * as S from "./style";
 import { matchByText } from "helpers/Utils";
+import CheckoutSectionProfilePath from "components/CheckoutSectionProfilePath/CheckoutSectionProfilePath";
 
 
 
@@ -35,6 +36,11 @@ const PROFILE = ( ) => {
     const [perfil, setPerfil] = useState<ProfileResponse>();
 
     const [proceedToOverlay, setProceedToOverlay] = useState<boolean>(false);
+
+
+    const [proceedToOverlayPath, setProceedToOverlayPath] = useState<boolean>(false);
+
+
   const [proceedToOverlayProfile, setProceedToOverlayProfile] = useState<boolean>(false);
     
       //Vamos implementar a função handleSelection para que quando o usuário clique em uma pizza, ela seja adicionada automaticamente na lista do pedido.
@@ -62,15 +68,21 @@ console.log(perfil)
   );
 
 
+
   
+ 
 
   useEffect(() => {
     // ou ostra a lista de produtos do bacjend ou a lista vazia 
-    setUser(profileData || []);
     
+    
+   console.log(profileData)
+   setUser(profileData || []);
+   setUser(profileData || []);
+   
    
 
-  }, [profileData]);
+  }, [ profileData,proceedToOverlayProfile,proceedToOverlay]);
 
 
 
@@ -86,6 +98,7 @@ console.log(perfil)
 const handleFilter = (testo: string  ) => {
   const list = user.filter(({title}) => matchByText(title, testo));
   setUser(list);
+
 }
 
 
@@ -104,6 +117,8 @@ const handleFilter = (testo: string  ) => {
         onNavigate={handleNavigation}
         onLogout={Auth.logout}
         onClick2={() => setProceedToOverlay(true)}
+        onClick3={() => setProceedToOverlayPath(true)}
+
       />
      
      {proceedToOverlayProfile && (
@@ -111,6 +126,15 @@ const handleFilter = (testo: string  ) => {
           <CheckoutSectionProfileDelete
              enviando={perfil}
              onCloseSection={() => setProceedToOverlayProfile(false)}
+          />
+          </Overlay>
+        )}
+
+{proceedToOverlayPath && (
+          <Overlay>
+          <CheckoutSectionProfilePath
+             enviando={perfil}
+             onCloseSection={() => setProceedToOverlayPath(false)}
           />
           </Overlay>
         )}

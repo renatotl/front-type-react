@@ -41,29 +41,36 @@ export const ProfileService = {
     ,
 
     // busca de um produtor
-  getById: (id: string) =>
+  getById: async (id: string) => { 
   // metodo a ser executado
-    Api(endpoint.profileById(id), {
+  const response = await   fetch("https://live-game-retro-production.up.railway.app" + `/profile/getProfileById/${id}`, {
         // metodo get
       method: "GET",
       // convertendo em json
-    }).then((response) => response.json()),
+    }); const data = response.json();
+    
+    return await data; }
+    ,
 
     // enviando na req o produto e o id
-  updateById: ({ product, id }: ProfileUpdate) =>
+  updateById: async ( dataUpdate : ProfileUpdate) => { 
   // executar o metedo 
-    Api(endpoint.profileById(id), {
+  console.log(dataUpdate)
+  const response = await   fetch("https://live-game-retro-production.up.railway.app" + `/profile/updateProfile`, {
       
       method: "PATCH",
       // converter o body em json
-      body: JSON.stringify(product),
+      body: JSON.stringify(dataUpdate),
       mode: "cors",
       // informando que e json
       headers: {
         "Content-Type": "application/json",
       },
       // tratar a res
-    }).then((response) => response.json()),
+    }); const data = response.json();
+  console.log(data)
+    
+    return await data; },
 
 
     // muito parecido com get id

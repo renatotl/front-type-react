@@ -8,8 +8,10 @@ export interface Profile {
   }
   
   export interface ProfileUpdate {
-    product: string;
-    id: string;
+    title: string;
+    imageURL: string;
+    userId?: User | string | undefined;
+    id?: string | undefined;
   }
   
 

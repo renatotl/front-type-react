@@ -14,10 +14,10 @@ import { QueryKey } from "types/QueryKey";
 import { useQuery } from "@tanstack/react-query";
 import { GameService } from "services/GameService";
 import { Overlay } from "components/Overlay/style";
-import CheckoutSectionGame from "components/CheckoutSectionGame";
+import CheckoutSectionGame from "components/CheckoutSectionGame/CheckoutSectionGame";
 import { LocalStorageHelper } from "helpers/LocalStorageHelper";
 import { LocalStorageKeys } from "types/LocalStorageKeys";
-import CheckoutSectionGameDelete from "components/CheckoutSectionGameDelete";
+import CheckoutSectionGameDelete from "components/CheckoutSectionGameDelete/CheckoutSectionGameDelete";
 
 const HomePage = () => {
 
@@ -70,6 +70,8 @@ const HomePage = () => {
 
   const [proceedToOverlay, setProceedToOverlay] = useState<boolean>(false);
   const [proceedToOverlayGame, setProceedToOverlayGame] = useState<boolean>(false);
+  const [proceedToOverlayPath, setProceedToOverlayPath] = useState<boolean>(false);
+
 
   // onLogout={() => navigate(RoutePath.LOGIN)} // apenas muda a rota
   // realmente desloga: onLogout={Auth.logout}// dessa forma realmente damos o logout
@@ -81,6 +83,7 @@ const HomePage = () => {
         onNavigate={handleNavigation}
         onLogout={Auth.logout}
         onClick2={() => setProceedToOverlay(true)}
+        onClick3={() => setProceedToOverlayPath(true)}
       />
 
 

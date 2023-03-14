@@ -14,10 +14,12 @@ interface MenuProps {
     onNavigate: (data: RoutePath) => void;// recebe um rota como params e nos manta para algum lugar. Exemplo: se eu clicar em setting me manda para setting
     onLogout: () => void;
     onClick2: () => void;
+    onClick3: () => void;
+
 
   }
 
-const Menu = ({active, navItems, onNavigate, onLogout, onClick2}:MenuProps) =>{
+const Menu = ({active, navItems, onNavigate, onLogout, onClick2, onClick3}:MenuProps) =>{
 
     return ( 
     <S.Menu>
@@ -39,10 +41,13 @@ const Menu = ({active, navItems, onNavigate, onLogout, onClick2}:MenuProps) =>{
     </nav>
     
     <S.MenuItemLogout onClick={onClick2}>
-    <Logout />
+    Cadastrar
     </S.MenuItemLogout>
     
-   
+    <S.MenuItemLogout onClick={onClick3}>
+    Atualizar
+    </S.MenuItemLogout>
+
     <S.MenuItemLogout onClick={onLogout}>
       <Logout />
     </S.MenuItemLogout>

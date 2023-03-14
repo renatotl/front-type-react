@@ -32,6 +32,7 @@ const CheckoutSectionProfileDelete = ({ enviando,
 }: CheckoutSectionProps) => {
   const [closing, setClosing] = useState<boolean>(false);
 
+  
 
 
   const handleCloseSection = () => {
