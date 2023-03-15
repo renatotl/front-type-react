@@ -18,6 +18,8 @@ import CheckoutSectionGame from "components/CheckoutSectionGame/CheckoutSectionG
 import { LocalStorageHelper } from "helpers/LocalStorageHelper";
 import { LocalStorageKeys } from "types/LocalStorageKeys";
 import CheckoutSectionGameDelete from "components/CheckoutSectionGameDelete/CheckoutSectionGameDelete";
+import CheckoutSectionProfilePath from "components/CheckoutSectionProfilePath/CheckoutSectionProfilePath";
+import CheckoutSectionGamePath from "components/CheckoutSectionGamePath/CheckoutSectionGamePath";
 
 const HomePage = () => {
 
@@ -85,6 +87,16 @@ const HomePage = () => {
         onClick2={() => setProceedToOverlay(true)}
         onClick3={() => setProceedToOverlayPath(true)}
       />
+
+
+{proceedToOverlayPath && (
+          <Overlay>
+          <CheckoutSectionGamePath
+             enviando={game2}
+             onCloseSection={() => setProceedToOverlayPath(false)}
+          />
+          </Overlay>
+        )}
 
 
 {proceedToOverlayGame && (

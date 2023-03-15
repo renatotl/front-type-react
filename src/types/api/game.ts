@@ -26,6 +26,12 @@ export interface Game {
   }
   
   export interface GameUpdate {
-    game: string;
-    id: string;
+    title: string,
+    coverImageUrl: string,
+    description: string,
+    year: string,
+    imdbScore: string,
+    trailerYouTubeUrl: string,
+    gameplayYouTubeUrl: string,
+    id?: string;
   }

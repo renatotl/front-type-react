@@ -51,9 +51,9 @@ export const GameService = {
     }).then((response) => response.json()),
 
     // enviando na req o produto e o id
-  updateById: ({ game, id }: GameUpdate) =>
+  updateById: async (game: GameUpdate) => { 
   // executar o metedo 
-    Api(endpoint.profileById(id), {
+  const response = await   fetch("https://live-game-retro-production.up.railway.app" + '/games/updateGame', {
       
       method: "PATCH",
       // converter o body em json
@@ -64,7 +64,9 @@ export const GameService = {
         "Content-Type": "application/json",
       },
       // tratar a res
-    }).then((response) => response.json()),
+    }); const data = response.json();
+    
+    return await data; },
 
 
     // muito parecido com get id
