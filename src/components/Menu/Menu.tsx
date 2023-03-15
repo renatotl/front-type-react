@@ -45,7 +45,8 @@ const Menu = ({active, navItems, onNavigate, onLogout, onClick2, onClick3}:MenuP
     </S.MenuItemLogout>
     
     <S.MenuItemLogout onClick={onClick3}>
-    Atualizar
+    Atualizar:
+    selecione o card antes
     </S.MenuItemLogout>
 
     <S.MenuItemLogout onClick={onLogout}>

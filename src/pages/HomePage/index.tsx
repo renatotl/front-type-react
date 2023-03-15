@@ -3,10 +3,11 @@ import { navigationItems } from "data/navigation";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "types/routes";
 import * as S from "./style";
+import { ReactComponent as Search } from "assets/icons/search.svg";
 
-import { GameLis } from "../../mocks/gameList";
+
 import GameList from "components/GameList/GameList";
-import { ProductResponse } from "types/Product";
+
 import { GameResponse } from "types/api/game";
 import { Auth } from "helpers/Auth";
 import { useState , useEffect} from "react";
@@ -18,8 +19,8 @@ import CheckoutSectionGame from "components/CheckoutSectionGame/CheckoutSectionG
 import { LocalStorageHelper } from "helpers/LocalStorageHelper";
 import { LocalStorageKeys } from "types/LocalStorageKeys";
 import CheckoutSectionGameDelete from "components/CheckoutSectionGameDelete/CheckoutSectionGameDelete";
-import CheckoutSectionProfilePath from "components/CheckoutSectionProfilePath/CheckoutSectionProfilePath";
 import CheckoutSectionGamePath from "components/CheckoutSectionGamePath/CheckoutSectionGamePath";
+import { matchByText } from "helpers/Utils";
 
 const HomePage = () => {
 
@@ -74,7 +75,12 @@ const HomePage = () => {
   const [proceedToOverlayGame, setProceedToOverlayGame] = useState<boolean>(false);
   const [proceedToOverlayPath, setProceedToOverlayPath] = useState<boolean>(false);
 
-
+  //função do filtro
+  const handleFilter = (testo: string  ) => {
+    const list = game.filter(({title}) => matchByText(title, testo));
+    setGame(list);
+  
+  }
   // onLogout={() => navigate(RoutePath.LOGIN)} // apenas muda a rota
   // realmente desloga: onLogout={Auth.logout}// dessa forma realmente damos o logout
   return (
@@ -87,6 +93,12 @@ const HomePage = () => {
         onClick2={() => setProceedToOverlay(true)}
         onClick3={() => setProceedToOverlayPath(true)}
       />
+
+<S.HomeHeaderDetailsSearch>
+            <Search />
+            <input  type="text" placeholder="Procure pelo nome de perfil"
+            onChange={({target}) => handleFilter(target.value)} />
+          </S.HomeHeaderDetailsSearch>
 
 
 {proceedToOverlayPath && (

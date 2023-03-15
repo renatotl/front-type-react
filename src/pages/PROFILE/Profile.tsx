@@ -1,5 +1,5 @@
 
-import { useMutation, useQuery } from "@tanstack/react-query";
+import {  useQuery } from "@tanstack/react-query";
 import CheckoutSection from "components/CheckoutSection/CheckoutSection";
 import CheckoutSectionProfileDelete from "components/CheckoutSectionProfileDelete/CheckoutSectionProfileDelete";
 import Menu from "components/Menu/Menu";
@@ -9,15 +9,12 @@ import { ReactComponent as Search } from "assets/icons/search.svg";
 import UserList from "components/UserList/UserList";
 import { navigationItems2 } from "data/navigation";
 import { Auth } from "helpers/Auth";
-import { user } from "helpers/endpoints/user";
 import { LocalStorageHelper } from "helpers/LocalStorageHelper";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProfileService } from "services/ProfiletService";
-import { UserService } from "services/UserService";
-import { ErrorResponse } from "types/api/error";
-import { Profile, ProfileResponse } from "types/api/profile";
-import { UserResponse } from "types/api/user";
+
+import { ProfileResponse } from "types/api/profile";
 import { LocalStorageKeys } from "types/LocalStorageKeys";
 import { QueryKey } from "types/QueryKey";
 import { RoutePath } from "types/routes";
@@ -98,6 +95,10 @@ console.log(perfil)
 const handleFilter = (testo: string  ) => {
   const list = user.filter(({title}) => matchByText(title, testo));
   setUser(list);
+  console.log(list)
+  
+  setUser(profileData || []);
+  
 
 }
 
